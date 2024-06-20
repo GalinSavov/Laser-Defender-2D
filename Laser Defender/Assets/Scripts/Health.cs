@@ -6,6 +6,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private float startingHealth = 100f;
     [SerializeField] private ParticleSystem explosionParticles = null;
+    [SerializeField] private CameraShake cameraShake = null;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,6 +15,7 @@ public class Health : MonoBehaviour
         {
             damageDealer.Destroy();
             PlayExplosion();
+            ShakeCamera();
             DealDamage(damageDealer.GetDamage());
         }
     }
@@ -37,5 +39,13 @@ public class Health : MonoBehaviour
             Destroy(effect.gameObject,effect.main.duration);
         }
     }
+    private void ShakeCamera()
+    {
+        if (cameraShake != null)
+        {
+            cameraShake.ShakeCamera();
+
+        }
+    }   
     
 }

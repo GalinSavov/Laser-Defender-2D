@@ -225,6 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
+  explosionParticles: {fileID: 3867713165405700345, guid: d732fcbe6b45b13429e8e7476d7f00e2, type: 3}
 --- !u!114 &4390298472546853965
 MonoBehaviour:
   m_ObjectHideFlags: 0

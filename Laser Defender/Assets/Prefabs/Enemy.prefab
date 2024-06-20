@@ -64,6 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
+  explosionParticles: {fileID: 0}
 --- !u!61 &5195276155699863506
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -149,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
+  explosionParticles: {fileID: 3867713165405700345, guid: d732fcbe6b45b13429e8e7476d7f00e2, type: 3}
 --- !u!114 &5914882559178856238
 MonoBehaviour:
   m_ObjectHideFlags: 0

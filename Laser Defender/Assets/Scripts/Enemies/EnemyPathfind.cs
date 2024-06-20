@@ -21,7 +21,6 @@ public class EnemyPathfind : MonoBehaviour
         waypoints = waveConfig.GetWaypoints();
     }
 
-    
     void Update()
     {
         NavigatePath();
@@ -34,7 +33,6 @@ public class EnemyPathfind : MonoBehaviour
             Vector3 targetPosition = waypoints[index].position;
             float moveSpeed = waveConfig.GetMoveSpeed() * Time.deltaTime;
 
-            //check if lerp can also work
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed);
 
             if (transform.position == targetPosition)

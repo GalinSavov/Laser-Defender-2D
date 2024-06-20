@@ -16,6 +16,11 @@ namespace Game.Player
         [SerializeField] private float paddingTop = 1f;
         [SerializeField] private float paddingBottom = 1f;
 
+        
+        [SerializeField] private Transform projectileSpawnPoint = null;
+
+        [SerializeField] private Shooter shooter = null;
+
         private Vector2 moveInput;
 
         private Vector3 minBounds;
@@ -61,6 +66,16 @@ namespace Game.Player
         {
             moveInput = inputValue.Get<Vector2>();
 
+        }
+        private void OnFire(InputValue inputValue)
+        {
+            shooter.isFiring = inputValue.isPressed;
+        }
+
+
+        public Transform GetProjectileSpawnPoint()
+        {
+            return projectileSpawnPoint;
         }
     }
 }

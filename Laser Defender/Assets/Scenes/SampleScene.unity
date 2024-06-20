@@ -442,7 +442,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1184818134
 Transform:
   m_ObjectHideFlags: 0
@@ -473,6 +473,7 @@ MonoBehaviour:
   waveConfigs:
   - {fileID: 11400000, guid: 127f294bc50f07b40b79ea9337bf6d23, type: 2}
   - {fileID: 11400000, guid: 5ab9af6f5f02ec0429bf4722555a50f3, type: 2}
+  timeBetweenWaves: 1
 --- !u!1001 &5951706707854491584
 PrefabInstance:
   m_ObjectHideFlags: 0

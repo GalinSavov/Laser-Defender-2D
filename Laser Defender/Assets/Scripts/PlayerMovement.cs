@@ -69,7 +69,7 @@ namespace Game.Player
         }
         private void OnFire(InputValue inputValue)
         {
-            shooter.isFiring = inputValue.isPressed;
+            shooter.PlayerIsFiring = inputValue.isPressed;
         }
 
 

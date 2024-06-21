@@ -8,6 +8,12 @@ public class Health : MonoBehaviour
     [SerializeField] private ParticleSystem explosionParticles = null;
     [SerializeField] private CameraShake cameraShake = null;
 
+    private AudioPlayer audioPlayer;
+
+    private void Awake()
+    {
+        audioPlayer = FindObjectOfType<AudioPlayer>();
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         DamageDealer damageDealer = other.GetComponent<DamageDealer>();
@@ -15,6 +21,7 @@ public class Health : MonoBehaviour
         {
             damageDealer.Destroy();
             PlayExplosion();
+            audioPlayer.PlayDamageClip();
             ShakeCamera();
             DealDamage(damageDealer.GetDamage());
         }
@@ -22,7 +29,6 @@ public class Health : MonoBehaviour
 
     private void DealDamage(int amount)
     {
-        
         startingHealth -= amount;
 
         if (startingHealth <= 0)

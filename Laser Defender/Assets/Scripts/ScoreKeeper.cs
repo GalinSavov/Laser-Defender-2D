@@ -15,4 +15,8 @@ public class ScoreKeeper : MonoBehaviour
     {
         currentScore += amount;
     }
+    public int GetCurrentScore()
+    {
+        return currentScore;
+    }
 }

@@ -8,12 +8,19 @@ public class Health : MonoBehaviour
     [SerializeField] private ParticleSystem explosionParticles = null;
     [SerializeField] private CameraShake cameraShake = null;
 
+    public float CurrentHealth { get; private set; }
     private AudioPlayer audioPlayer;
+    private ScoreKeeper scoreKeeper;
 
+   
     private void Awake()
     {
         audioPlayer = FindObjectOfType<AudioPlayer>();
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
+
+        CurrentHealth = startingHealth;
     }
+ 
     private void OnTriggerEnter2D(Collider2D other)
     {
         DamageDealer damageDealer = other.GetComponent<DamageDealer>();
@@ -29,20 +36,23 @@ public class Health : MonoBehaviour
 
     private void DealDamage(int amount)
     {
-        startingHealth -= amount;
+        CurrentHealth -= amount;
 
-        if (startingHealth <= 0)
+        if (CurrentHealth <= 0)
+        {
+            if(gameObject.CompareTag("Enemy"))
+            scoreKeeper.IncreaseScore(50);
+
             Destroy(gameObject);
-
-        
+        }
     }
     private void PlayExplosion()
     {
-       if (explosionParticles != null)
+        if (explosionParticles != null)
         {
             ParticleSystem effect = Instantiate(explosionParticles, transform.position, Quaternion.identity);
             effect.Play();
-            Destroy(effect.gameObject,effect.main.duration);
+            Destroy(effect.gameObject, effect.main.duration);
         }
     }
     private void ShakeCamera()
@@ -52,6 +62,6 @@ public class Health : MonoBehaviour
             cameraShake.ShakeCamera();
 
         }
-    }   
-    
+    }
+
 }

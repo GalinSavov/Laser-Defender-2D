@@ -10,15 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1694058497560162668}
   - component: {fileID: 3005964376573902242}
-  - component: {fileID: 8384517880448341913}
   - component: {fileID: 5195276155699863506}
   - component: {fileID: 5716449168534651711}
   - component: {fileID: 3625302452133115687}
-  - component: {fileID: 5914882559178856238}
   - component: {fileID: 4215537287739276573}
   m_Layer: 8
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,20 +49,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcfbae4674209a643a33bae96882a753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8384517880448341913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6790552838442070029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7a3bc666eb918f499c099a06e0f7229, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 100
-  explosionParticles: {fileID: 0}
 --- !u!61 &5195276155699863506
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -151,19 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   explosionParticles: {fileID: 3867713165405700345, guid: d732fcbe6b45b13429e8e7476d7f00e2, type: 3}
---- !u!114 &5914882559178856238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6790552838442070029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 536a33cf6482bf243b7391c7fac7568e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 50
+  cameraShake: {fileID: 0}
 --- !u!114 &4215537287739276573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 471506518976500999}
   - component: {fileID: 4108619431447865211}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: enemyRed1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

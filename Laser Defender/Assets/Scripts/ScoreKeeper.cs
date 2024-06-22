@@ -6,6 +6,20 @@ public class ScoreKeeper : MonoBehaviour
 {
     [SerializeField] private int currentScore = 0;
 
+    private static ScoreKeeper instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
     public void ResetScore()
     {
         currentScore = 0; 

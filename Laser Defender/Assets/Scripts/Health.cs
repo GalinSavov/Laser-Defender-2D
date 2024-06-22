@@ -12,11 +12,13 @@ public class Health : MonoBehaviour
     private AudioPlayer audioPlayer;
     private ScoreKeeper scoreKeeper;
 
+    private LevelManager levelManager;
    
     private void Awake()
     {
         audioPlayer = FindObjectOfType<AudioPlayer>();
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
+        levelManager = FindObjectOfType<LevelManager>();
 
         CurrentHealth = startingHealth;
     }
@@ -40,8 +42,11 @@ public class Health : MonoBehaviour
 
         if (CurrentHealth <= 0)
         {
-            if(gameObject.CompareTag("Enemy"))
-            scoreKeeper.IncreaseScore(50);
+            if (gameObject.CompareTag("Enemy"))
+                scoreKeeper.IncreaseScore(50);
+
+            else if (gameObject.CompareTag("Player"))
+                levelManager.LoadGameOver();
 
             Destroy(gameObject);
         }

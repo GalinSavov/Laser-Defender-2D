@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UIDisplay : MonoBehaviour
 {
-    [SerializeField] private ScoreKeeper scoreKeeper = null;
+    
     [SerializeField] private TextMeshProUGUI scoreText = null;
     [SerializeField] private Slider healthSlider = null;
     [SerializeField] private Health playerHealth = null;
@@ -18,7 +18,7 @@ public class UIDisplay : MonoBehaviour
     
     void Update()
     {
-        scoreText.text = scoreKeeper.GetCurrentScore().ToString("000000000");
+        scoreText.text = ScoreManager.instance.GetCurrentScore().ToString("000000000");
         healthSlider.value = playerHealth.CurrentHealth;
     }
 }

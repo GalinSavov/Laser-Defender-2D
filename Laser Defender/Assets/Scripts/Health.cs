@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,37 +6,28 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] private float startingHealth = 100f;
-    [SerializeField] private ParticleSystem explosionParticles = null;
-    [SerializeField] private CameraShake cameraShake = null;
-
     public float CurrentHealth { get; private set; }
-    private AudioPlayer audioPlayer;
-    private ScoreKeeper scoreKeeper;
-
-    private LevelManager levelManager;
-   
+    public static Action OnPlayerDeath;
+    public static Action<Transform> OnTargetDamaged;
+    public static Action OnPlayerDamaged;
     private void Awake()
     {
-        audioPlayer = FindObjectOfType<AudioPlayer>();
-        scoreKeeper = FindObjectOfType<ScoreKeeper>();
-        levelManager = FindObjectOfType<LevelManager>();
-
         CurrentHealth = startingHealth;
     }
- 
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         DamageDealer damageDealer = other.GetComponent<DamageDealer>();
-        if (damageDealer)
+        if (damageDealer.tag == "Enemy")
         {
-            damageDealer.Destroy();
-            PlayExplosion();
-            audioPlayer.PlayDamageClip();
-            ShakeCamera();
-            DealDamage(damageDealer.GetDamage());
+            OnPlayerDamaged?.Invoke();
         }
-    }
+        damageDealer.Destroy();
+        OnTargetDamaged?.Invoke(this.transform);
+        AudioManager.instance.PlayDamageClip();
+        DealDamage(damageDealer.GetDamage());
 
+    }
     private void DealDamage(int amount)
     {
         CurrentHealth -= amount;
@@ -43,30 +35,12 @@ public class Health : MonoBehaviour
         if (CurrentHealth <= 0)
         {
             if (gameObject.CompareTag("Enemy"))
-                scoreKeeper.IncreaseScore(50);
+                ScoreManager.instance.IncreaseScore(50);
 
             else if (gameObject.CompareTag("Player"))
-                levelManager.LoadGameOver();
+                OnPlayerDeath?.Invoke();
 
             Destroy(gameObject);
         }
     }
-    private void PlayExplosion()
-    {
-        if (explosionParticles != null)
-        {
-            ParticleSystem effect = Instantiate(explosionParticles, transform.position, Quaternion.identity);
-            effect.Play();
-            Destroy(effect.gameObject, effect.main.duration);
-        }
-    }
-    private void ShakeCamera()
-    {
-        if (cameraShake != null)
-        {
-            cameraShake.ShakeCamera();
-
-        }
-    }
-
 }

@@ -10,10 +10,5 @@ public abstract class Shooter : MonoBehaviour,IShootable
     [SerializeField] protected float projectileLifetime = 3f;
     [SerializeField] protected float baseFiringRate = 1f;
     protected Coroutine firingCoroutine;
-    protected AudioPlayer audioPlayer;
-    private void Awake()
-    {
-        audioPlayer = FindObjectOfType<AudioPlayer>();
-    }
     public abstract IEnumerator Shoot();
 }

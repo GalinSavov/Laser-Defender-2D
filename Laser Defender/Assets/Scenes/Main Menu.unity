@@ -1380,7 +1380,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5152629054471625518, guid: 48f363c46dfcf1147974aa68b7c34c50, type: 3}
       propertyPath: m_Name
-      value: Audio Player
+      value: Audio Manager
       objectReference: {fileID: 0}
     - target: {fileID: 5152629054471625518, guid: 48f363c46dfcf1147974aa68b7c34c50, type: 3}
       propertyPath: m_IsActive
@@ -1441,7 +1441,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1266317474420252757, guid: c9145a837a3173249a1fdb18e0eeffd3, type: 3}
       propertyPath: m_Name
-      value: Score Keeper
+      value: Score Manager
       objectReference: {fileID: 0}
     - target: {fileID: 5304581303677384499, guid: c9145a837a3173249a1fdb18e0eeffd3, type: 3}
       propertyPath: m_LocalPosition.x

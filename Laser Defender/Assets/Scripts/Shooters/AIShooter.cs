@@ -20,7 +20,7 @@ public class AIShooter : Shooter
             {
                 rb.velocity = transform.up * projectileSpeed;
             }
-            audioPlayer.PlayShootingClip();
+            AudioManager.instance.PlayShootingClip();
             Destroy(projectile, projectileLifetime);
             yield return new WaitForSeconds(Random.Range(minFiringRate, maxFiringRate) + baseFiringRate);
         }

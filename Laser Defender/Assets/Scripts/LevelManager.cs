@@ -1,18 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
-    private ScoreKeeper scoreKeeper;
-
-    private void Awake()
+    private void OnEnable()
     {
-        scoreKeeper = FindObjectOfType<ScoreKeeper>();
+        Health.OnPlayerDeath += HandlePlayerDeath;
     }
+    private void OnDisable()
+    {
+        Health.OnPlayerDeath -= HandlePlayerDeath;
+    }
+
+    private void HandlePlayerDeath()
+    {
+        LoadGameOver();
+    }
+
     public void LoadGame()
     {
-        scoreKeeper.ResetScore();
+        ScoreManager.instance.ResetScore();
         SceneManager.LoadScene("Game");
     }
     public void LoadMainMenu()

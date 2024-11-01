@@ -8,25 +8,17 @@ namespace Game.Player
 {
     public class PlayerMovement : MonoBehaviour
     {
-        
         [SerializeField] private float moveSpeed = 5f;
-
         [SerializeField] private float paddingLeft = 1f;
         [SerializeField] private float paddingRight = 1f;
         [SerializeField] private float paddingTop = 1f;
         [SerializeField] private float paddingBottom = 1f;
 
-        
-        [SerializeField] private Transform projectileSpawnPoint = null;
-
-        [SerializeField] private Shooter shooter = null;
+        [SerializeField] private PlayerShooter shooter = null;
 
         private Vector2 moveInput;
-
         private Vector3 minBounds;
         private Vector3 maxBounds;
-
-        
         void Start()
         {
             InitBounds();
@@ -60,22 +52,14 @@ namespace Game.Player
             minBounds = camera.ViewportToWorldPoint(new Vector3(0,0,1));
             maxBounds = camera.ViewportToWorldPoint(new Vector3(1, 1,1));
         }
-
-
         private void OnMove(InputValue inputValue)
         {
             moveInput = inputValue.Get<Vector2>();
-
         }
         private void OnFire(InputValue inputValue)
         {
-            shooter.PlayerIsFiring = inputValue.isPressed;
+            shooter.IsFiring = inputValue.isPressed;
         }
 
-
-        public Transform GetProjectileSpawnPoint()
-        {
-            return projectileSpawnPoint;
-        }
     }
 }

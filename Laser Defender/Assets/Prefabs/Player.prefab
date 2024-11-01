@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4222967284601555487}
   - component: {fileID: 4804983259686435286}
   - component: {fileID: 981318266791457142}
-  - component: {fileID: 4390298472546853965}
+  - component: {fileID: 2314577677273879193}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -137,8 +137,7 @@ MonoBehaviour:
   paddingRight: 0.5
   paddingTop: 5
   paddingBottom: 1
-  projectileSpawnPoint: {fileID: 0}
-  shooter: {fileID: 4390298472546853965}
+  shooter: {fileID: 2314577677273879193}
 --- !u!61 &4222967284601555487
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -226,7 +225,7 @@ MonoBehaviour:
   startingHealth: 100
   explosionParticles: {fileID: 3867713165405700345, guid: d732fcbe6b45b13429e8e7476d7f00e2, type: 3}
   cameraShake: {fileID: 0}
---- !u!114 &4390298472546853965
+--- !u!114 &2314577677273879193
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -235,13 +234,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5010705165467129428}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51eb21b5f1159ce4c9ac602d2ce2f257, type: 3}
+  m_Script: {fileID: 11500000, guid: c050093635069764a94e4c095af4e8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7576181583973135984, guid: eee71a78aca113942b79edfa2fa3c1c0, type: 3}
   projectileSpeed: 10
   projectileLifetime: 3
   baseFiringRate: 1
-  minFiringRate: 0
-  maxFiringRate: 0
+  minFiringRate: 0.5
+  maxFiringRate: 2
   useAI: 0

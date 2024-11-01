@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5195276155699863506}
   - component: {fileID: 5716449168534651711}
   - component: {fileID: 3625302452133115687}
-  - component: {fileID: 4215537287739276573}
+  - component: {fileID: 3607644726103123796}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
@@ -136,7 +136,7 @@ MonoBehaviour:
   startingHealth: 100
   explosionParticles: {fileID: 3867713165405700345, guid: d732fcbe6b45b13429e8e7476d7f00e2, type: 3}
   cameraShake: {fileID: 0}
---- !u!114 &4215537287739276573
+--- !u!114 &3607644726103123796
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,16 +145,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6790552838442070029}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51eb21b5f1159ce4c9ac602d2ce2f257, type: 3}
+  m_Script: {fileID: 11500000, guid: 2db6db6183e45a842ac5f26e0b05f6f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7576181583973135984, guid: 00137b27fb69d3e4eb8f1e6dbe436645, type: 3}
   projectileSpeed: 10
   projectileLifetime: 3
-  baseFiringRate: 0.1
-  minFiringRate: 0.2
+  baseFiringRate: 0.5
+  minFiringRate: 0.5
   maxFiringRate: 1
-  useAI: 1
 --- !u!1 &8124680867267671444
 GameObject:
   m_ObjectHideFlags: 0

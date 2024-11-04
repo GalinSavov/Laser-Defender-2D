@@ -26,7 +26,6 @@ public class Health : MonoBehaviour
         OnTargetDamaged?.Invoke(this.transform);
         AudioManager.instance.PlayDamageClip();
         DealDamage(damageDealer.GetDamage());
-
     }
     private void DealDamage(int amount)
     {

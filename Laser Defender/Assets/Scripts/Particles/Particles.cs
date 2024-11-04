@@ -5,5 +5,5 @@ using UnityEngine;
 public abstract class Particles : MonoBehaviour
 {
     [SerializeField] protected ParticleSystem particles = null;
-    protected abstract void PlayParticles();
+    protected abstract void PlayParticles(Transform transform);
 }

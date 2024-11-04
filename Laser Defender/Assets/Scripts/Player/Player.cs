@@ -6,16 +6,14 @@ using UnityEngine.InputSystem;
 
 namespace Game.Player
 {
-    public class PlayerMovement : MonoBehaviour
+    public class Player : MonoBehaviour
     {
         [SerializeField] private float moveSpeed = 5f;
         [SerializeField] private float paddingLeft = 1f;
         [SerializeField] private float paddingRight = 1f;
         [SerializeField] private float paddingTop = 1f;
         [SerializeField] private float paddingBottom = 1f;
-
         [SerializeField] private PlayerShooter shooter = null;
-
         private Vector2 moveInput;
         private Vector3 minBounds;
         private Vector3 maxBounds;
@@ -60,6 +58,5 @@ namespace Game.Player
         {
             shooter.IsFiring = inputValue.isPressed;
         }
-
     }
 }

@@ -9,23 +9,19 @@ public class ExplosionParticles : Particles
     }
     private void HandleDamage(Transform damaged)
     {
-        if (particles != null)
-        {
-            ParticleSystem effect = Instantiate(particles, damaged.position, Quaternion.identity);
-            effect.Play();
-            Destroy(effect.gameObject, effect.main.duration);
-        }
+       PlayParticles(damaged);
     }
     private void OnDisable()
     {
         Health.OnTargetDamaged -= HandleDamage;
     }
-    private void HandleDamage()
+    protected override void PlayParticles(Transform transform)
     {
-        PlayParticles();
-    }
-    protected override void PlayParticles()
-    {
-        
+        if (particles != null)
+        {
+            ParticleSystem effect = Instantiate(particles, transform.position, Quaternion.identity);
+            effect.Play();
+            Destroy(effect.gameObject, effect.main.duration);
+        }
     }
 }
